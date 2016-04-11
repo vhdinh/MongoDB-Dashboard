@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded());
 var path = require("path");
 
 // set static folder directory
-app.use(express.static(__dirname + "./static"));
+app.use(express.static(path.join(__dirname,"./static")));
 
 // set views folder directory
 app.set("views", path.join(__dirname, "./views"));

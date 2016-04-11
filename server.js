@@ -48,11 +48,6 @@ app.get("/", function(req, res){
     		console.log("no panda in database")
     	}
     	else {
-    		for( i in panda){
-    			console.log(panda[i].name)
-    			console.log(panda[i].activity)
-    			console.log(panda[i].language)
-    		}
     		res.render('index', {panda: panda})
     	}
     })
@@ -61,17 +56,36 @@ app.get("/", function(req, res){
 
 app.post('/new', function(req,res){
 	console.log("POST DATA ------", req.body);
-	var panda = new Panda({name: req.body.name, activity: req.body.activity, language: req.body.language});
-	console.log(panda)
-	panda.save(function(err){
+	var pandon = new Panda({name: req.body.name, activity: req.body.activity, language: req.body.language});
+	console.log(pandon)
+	pandon.save(function(err){
 		if(err){
-			res.render("index", {title: "you have errors!", errors: panda.errors})
+			res.json("index", {title: "you have errors!", errors: pandon.errors})
 		}
 		else {
 			res.redirect("/")
 		}
 	})
 })
+
+app.get('/:id/edit',function(req, res){
+	console.log(req.params.id)
+	Panda.findOne({_id : req.params.id}, function(err,panda){
+		res.render("panda", {thispanda: panda})	
+	})
+})
+
+app.post("/update/:id", function(req, res){
+	Panda.update({_id: req.params.id, name: req.body.name, activity: req.body.activity, language: req.body.language} , function(err, user){
+		if(err){
+			res.json("index", {title: "you have errors!", errors: pandon.errors})
+		}
+		else{
+			res.redirect('/')
+		}
+	})
+})
+
 
 port = 8000;
 app.listen(port, function(){

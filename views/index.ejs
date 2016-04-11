@@ -13,14 +13,9 @@
 <body>
 	<div id="container">
 	<h1>An Embarrassment of Pandas</h1>
-	<% for (var i in panda) { %>
+		<% for (var i in panda) { %>
 		<img src="panda.png" alt="panda">
-	<% } %>
-		<% if(typeof(errors) != "undefined") { %>
-			<% for (var x in errors) { %>
-				<h4> <%= errors[x].message %> </h4>
-			<% } %>
-		<% } %>	
+		<% } %>
 
 		<div class="addnew">
 			<h2>Add a new Panda</h2>
@@ -39,17 +34,18 @@
 		</div>
 
 		<div id="pandas">
+			<table>
 			<% for (var x in panda) { %>
-
-	        <h3><img src="panda.png" alt="panda">
-	        	<span>Name:  <%= panda[x].name %></span>
-	        	<span>Favorite Activity: <%= panda[x].activity %></span>
-	        	<span>Favorite Language: <%= panda[x].language%></span>
-	        	<a href="/<%=panda[x]._id%> ">Edit</a> ||
-	        	<a href="#">Delete</a>
-	        </h3>
-	        <hr>
+				<tr>
+					<td><img src="panda.png" alt="panda"></td>
+					<td>Name: <%= panda[x].name %></td>
+					<td>Favorite Activity: <%= panda[x].activity %></td>
+					<td> Favorite Language: <%= panda[x].language%></td>
+					<td><a href="/<%=panda[x]._id%>/edit">Edit</a> ||
+	        	<a href="#">Delete</a></td>
+				</tr>
 	    	<% } %>
+	   		</table>
 		</div>
 	</div>
 </body>

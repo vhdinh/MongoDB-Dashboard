@@ -2,6 +2,9 @@
 	font-family: arial;
 }
 
+#container {
+	margin: 20px;
+}
 h4{ 
 	color: red;
 }
@@ -39,5 +42,15 @@ h3 img, img {
 }
 
 h3 span {
-	margin: 5px 20px;
+	margin: 5px auto;
+	width: 200px;
 }
+
+td {
+	width: 250px;
+	padding: 5px 10px;
+	font-weight: bold
+}
+td:first-child {
+	width: 25px;
+};

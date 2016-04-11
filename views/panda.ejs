@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Embarrassment</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		// alert("Hi")
+
+	})
+	</script>
+</head>
+<body>
+	<div id="container">
+	<h1><img src="../panda.png" alt="panda" style="width: 30px; margin-right: 25px"><%= thispanda.name%>
+	<a href="/">Back</a>
+	</h1>
+	<form action="/update/<%= thispanda._id %>" method="post">
+		<p>Name:</p> <input type="text" name="name" value="<%= thispanda.name%>">
+		<p>Favorite Activity </p><input type="text" name="activity" value="<%= thispanda.activity %>">
+		<p>Favorite Language </p>
+
+		<select name="language" value="<%= thispanda.language %>" >
+			<option value="English" name="English">English</option>
+			<option value="Spanish" name="Spanish">Spanish</option>
+			<option value="French" name="French">French</option>
+			<option value="Chinese" name="Chinese">Chinese</option>
+		</select>
+		<button>Update</button>
+
+	</form>
+
+	</div>
+</body>
+</html>

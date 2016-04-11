@@ -13,17 +13,43 @@
 <body>
 	<div id="container">
 	<h1>An Embarrassment of Pandas</h1>
-		<div id="pandas">
-		</div>
+	<% for (var i in panda) { %>
+		<img src="panda.png" alt="panda">
+	<% } %>
+		<% if(typeof(errors) != "undefined") { %>
+			<% for (var x in errors) { %>
+				<h4> <%= errors[x].message %> </h4>
+			<% } %>
+		<% } %>	
+
 		<div class="addnew">
 			<h2>Add a new Panda</h2>
 			<form action="/new" method="post">
 				<p>Name: </p> <input type="text" name="name">
-				<br>
-				<p>Favorite Language: </p> <input type="text" name="language">
-				<br>
+				<p>Favorite Activity: </p><input type="text" name="activity">
+				<p>Favorite Language: </p> <select name="language">
+					<option value="English">English</option>
+					<option value="Spanish">Spanish</option>
+					<option value="French">French</option>
+					<option value="Chinese">Chinese</option>
+				</select>
 				<button>Add Panda</button>
+				<hr>
 			</form>
+		</div>
+
+		<div id="pandas">
+			<% for (var x in panda) { %>
+
+	        <h3><img src="panda.png" alt="panda">
+	        	<span>Name:  <%= panda[x].name %></span>
+	        	<span>Favorite Activity: <%= panda[x].activity %></span>
+	        	<span>Favorite Language: <%= panda[x].language%></span>
+	        	<a href="/<%=panda[x]._id%> ">Edit</a> ||
+	        	<a href="#">Delete</a>
+	        </h3>
+	        <hr>
+	    	<% } %>
 		</div>
 	</div>
 </body>

@@ -2,3 +2,42 @@
 	font-family: arial;
 }
 
+h4{ 
+	color: red;
+}
+
+p {
+	display: inline-block;
+	width: 150px;
+}
+
+form input, form select {
+	margin: 0px 20px;
+}
+
+form select {
+	width: 150px;
+}
+
+form button {
+	width: 100px;
+	background: black;
+	color: white;
+	border: none;
+}
+
+h3 {
+	vertical-align: top;
+	margin-top: 0px;
+	padding: 0;
+}
+
+h3 img, img {
+	width: 20px;
+	padding-top: 5px;
+	margin-right: 10px;
+}
+
+h3 span {
+	margin: 5px 20px;
+}

@@ -9,6 +9,12 @@ app.use(bodyParser.urlencoded());
 // require path
 var path = require("path");
 
+// requiring mongoose
+var mongoose = require("mongoose")
+// connect mongoose to MongoDB
+// mongoose.connect("mongodb://localhost/dashboard");
+
+
 // set static folder directory
 app.use(express.static(path.join(__dirname,"./static")));
 
@@ -20,6 +26,8 @@ app.set("view engine", "ejs");
 app.get("/", function(req, res){
 	res.render("index")
 })
+
+
 
 port = 8000;
 app.listen(port, function(){

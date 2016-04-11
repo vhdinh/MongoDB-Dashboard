@@ -5,12 +5,26 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
-		alert("Hi")
+		// alert("Hi")
 
 	})
 	</script>
 </head>
 <body>
-	<h1>Hi</h1>
+	<div id="container">
+	<h1>An Embarrassment of Pandas</h1>
+		<div id="pandas">
+		</div>
+		<div class="addnew">
+			<h2>Add a new Panda</h2>
+			<form action="/new" method="post">
+				<p>Name: </p> <input type="text" name="name">
+				<br>
+				<p>Favorite Language: </p> <input type="text" name="language">
+				<br>
+				<button>Add Panda</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

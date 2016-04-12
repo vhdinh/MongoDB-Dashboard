@@ -86,6 +86,13 @@ app.post("/update/:id", function(req, res){
 	})
 })
 
+app.get("/:id/destroy", function(req, res){
+	console.log("DESTROY",req.params.id)
+	Panda.remove({_id: req.params.id}, function(err, panda){
+		res.redirect("/")	
+	})
+})
+
 
 port = 8000;
 app.listen(port, function(){

@@ -14,7 +14,7 @@
 	<div id="container">
 	<h1>An Embarrassment of Pandas</h1>
 		<% for (var i in panda) { %>
-		<img src="panda.png" alt="panda">
+		<img src="panda.png" title="<%= panda[i].name%>">
 		<% } %>
 
 		<div class="addnew">
@@ -37,12 +37,12 @@
 			<table>
 			<% for (var x in panda) { %>
 				<tr>
-					<td><img src="panda.png" alt="panda"></td>
+					<td><img src="panda.png" title="<%= panda[x].name%>"></td>
 					<td>Name: <%= panda[x].name %></td>
 					<td>Favorite Activity: <%= panda[x].activity %></td>
 					<td> Favorite Language: <%= panda[x].language%></td>
 					<td><a href="/<%=panda[x]._id%>/edit">Edit</a> ||
-	        	<a href="#">Delete</a></td>
+	        	<a href="/<%=panda[x]._id%>/destroy">Delete</a></td>
 				</tr>
 	    	<% } %>
 	   		</table>
